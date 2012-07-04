@@ -7,7 +7,7 @@ import java.util.Map;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 public class CountDown {
 	private static final long SECOND = 1000;
@@ -36,7 +36,7 @@ public class CountDown {
 	
 	public CountDown(Date target, View view) {
 		this.view = view;
-		long now = Util.getCurrentTimeMillis();
+		long now = TimeUtil.getCurrentTimeMillis();
 		targetMillis = target.getTime();
 		if (targetMillis > now) {
 			long timeRemaining = getTimeRemainingMillis();
@@ -53,7 +53,7 @@ public class CountDown {
 	}
 	
 	private long getTimeRemainingMillis() {
-		long now = Util.getCurrentTimeMillis();
+		long now = TimeUtil.getCurrentTimeMillis();
 		long remaining = 0;
 		if (targetMillis > now) {
 			remaining = targetMillis - now;

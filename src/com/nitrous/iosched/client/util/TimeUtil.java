@@ -7,16 +7,17 @@ import com.google.gwt.i18n.client.TimeZone;
 import com.google.gwt.user.client.Window;
 import com.nitrous.iosched.client.data.Configuration;
 
-public class Util {
+public class TimeUtil {
 	public static TimeZone TIMEZONE = TimeZone.createTimeZone(7 * 60);
 	public static final String CONFERENCE_TIMEZONE = "GMT-07:00";
+	public static final String CONFERENCE_TIMEZONE_SHORT = "-0700";
 	public static final DateTimeFormat DATE_TIME_FORMAT = DateTimeFormat.getFormat("MMddyyyyHHmmZZZZ");
 	private static long sessionStartTime = -1;
 
 	// the override session start time specified using the URL argument now=MMddyyyyHHmmZZZ
 	private static long virtualTime = -1;
 	
-	private Util() {
+	private TimeUtil() {
 	}
 	
 	/**

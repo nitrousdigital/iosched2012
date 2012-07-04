@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.nitrous.iosched.client.data.EventDataWrapper;
 import com.nitrous.iosched.client.util.ConsoleLogger;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 public class SessionRow implements IsWidget, ClickHandler {
 	private VerticalPanel layout;
@@ -71,13 +71,13 @@ public class SessionRow implements IsWidget, ClickHandler {
 			return;
 		}
 		
-		if (event.getSlot().getEndTime().getTime() < Util.getCurrentTimeMillis()) {
+		if (event.getSlot().getEndTime().getTime() < TimeUtil.getCurrentTimeMillis()) {
 			if (!expired) {
 				if (ConsoleLogger.isDebugEnabled()) {
 					ConsoleLogger.debug(
 							"Expired session '"+event.getData().getTitle()
-							+"' since end time "+Util.DATE_TIME_FORMAT.format(event.getSlot().getEndTime())
-							+" < " + Util.DATE_TIME_FORMAT.format(new Date(Util.getCurrentTimeMillis())));
+							+"' since end time "+TimeUtil.DATE_TIME_FORMAT.format(event.getSlot().getEndTime())
+							+" < " + TimeUtil.DATE_TIME_FORMAT.format(new Date(TimeUtil.getCurrentTimeMillis())));
 				}
 				expired = true;
 				sessionTitleLabel.addStyleDependentName("expired");

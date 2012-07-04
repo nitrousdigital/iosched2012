@@ -16,7 +16,7 @@ import com.nitrous.iosched.client.event.ReloadAndDisplayAgendaEvent;
 import com.nitrous.iosched.client.event.SessionEnrolledStateChangeEvent;
 import com.nitrous.iosched.client.event.SimpleEventHandler;
 import com.nitrous.iosched.client.util.ConsoleLogger;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 public class AgendaManager {
 	private static final String ENROLLED_EVENT_IDS_COOKIE = "enrolled-event-ids"; 
@@ -159,7 +159,7 @@ public class AgendaManager {
 	private static String getCookieName(String eventType, Date startTime) {
 		StringBuffer buf = new StringBuffer();
 		buf.append(eventType);
-		buf.append(TIME_FORMAT.format(startTime, Util.TIMEZONE));
+		buf.append(TIME_FORMAT.format(startTime, TimeUtil.TIMEZONE));
 		return buf.toString();
 	}
 	private static String getCookieName(EventType type, EventSlotWrapper slotDef) {

@@ -3,18 +3,18 @@ package com.nitrous.iosched.client.view.session;
 import com.google.gwt.i18n.shared.DateTimeFormat;
 import com.nitrous.iosched.client.data.EventDataWrapper;
 import com.nitrous.iosched.client.data.TimeSlot;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 public class TimeLocationRenderer {
 	private static DateTimeFormat TIME_FORMAT = DateTimeFormat.getFormat("h:mmaa");
 	private static DateTimeFormat DAY_OF_WEEK_FORMAT = DateTimeFormat.getFormat("EEE");
 	public static String renderDateTime(TimeSlot slot) {
 		StringBuffer buf = new StringBuffer();		
-		buf.append(TIME_FORMAT.format(slot.getStartTime(), Util.TIMEZONE));
+		buf.append(TIME_FORMAT.format(slot.getStartTime(), TimeUtil.TIMEZONE));
 		buf.append(" - ");
-		buf.append(TIME_FORMAT.format(slot.getEndTime(), Util.TIMEZONE));
+		buf.append(TIME_FORMAT.format(slot.getEndTime(), TimeUtil.TIMEZONE));
 		buf.append(", ");
-		buf.append(DAY_OF_WEEK_FORMAT.format(slot.getStartTime(), Util.TIMEZONE));			
+		buf.append(DAY_OF_WEEK_FORMAT.format(slot.getStartTime(), TimeUtil.TIMEZONE));			
 		return buf.toString();
 	}
 	

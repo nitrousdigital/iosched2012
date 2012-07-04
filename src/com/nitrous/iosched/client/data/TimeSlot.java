@@ -5,7 +5,7 @@ import java.util.Date;
 import com.google.gwt.i18n.shared.DateTimeFormat;
 import com.nitrous.iosched.client.data.json.EventData;
 import com.nitrous.iosched.client.util.ConsoleLogger;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 /**
  * Describes the duration of a session
@@ -21,8 +21,6 @@ public class TimeSlot {
 	private Date endDate;
 	private Date startTime;
 	private Date endTime;
-	private static DateTimeFormat dateFormat = DateTimeFormat.getFormat("yyyy-MM-dd");
-	private static DateTimeFormat timeFormat = DateTimeFormat.getFormat("HH:mm");
 	private static DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm Z");
 	private static DateTimeFormat hMMFormat = DateTimeFormat.getFormat("H:mm");
 	private static DateTimeFormat hhMMFormat = DateTimeFormat.getFormat("HH:mm");
@@ -40,9 +38,9 @@ public class TimeSlot {
 					+"->"
 					+data.getEndDate() + " " + data.getEndTime()
 					+" as "
-					+dateTimeFormat.format(slot.getStartTime(), Util.TIMEZONE)
+					+dateTimeFormat.format(slot.getStartTime(), TimeUtil.TIMEZONE)
 					+"->"
-					+dateTimeFormat.format(slot.getEndTime(), Util.TIMEZONE)
+					+dateTimeFormat.format(slot.getEndTime(), TimeUtil.TIMEZONE)
 					+" " 
 					+ data.getTitle());
 		}
@@ -60,14 +58,14 @@ public class TimeSlot {
 	public TimeSlot(String startDate, String startTime, String endDate, String endTime) {
 		// yyyy-MM-ddHH:mmZZZZ
 		StringBuffer buf = new StringBuffer(startDate);
-		buf.append(" 00:00 -0700");
+		buf.append(" 00:00 ").append(TimeUtil.CONFERENCE_TIMEZONE_SHORT);
 		this.startDate = dateTimeFormat.parse(buf.toString());
 		this.startDate.setHours(0);
 		this.startDate.setMinutes(0);
 		this.startDate.setSeconds(0);
 
 		buf = new StringBuffer(endDate);
-		buf.append(" 00:00 -0700");
+		buf.append(" 00:00 ").append(TimeUtil.CONFERENCE_TIMEZONE_SHORT);
 		this.endDate = dateTimeFormat.parse(buf.toString());
 		this.endDate.setHours(0);
 		this.endDate.setMinutes(0);
@@ -75,7 +73,7 @@ public class TimeSlot {
 		
 		String reformattedTime = hhMMFormat.format(hMMFormat.parse(startTime)); 
 		buf = new StringBuffer(startDate);
-		buf.append(" ").append(reformattedTime).append(" -0700");
+		buf.append(" ").append(reformattedTime).append(" ").append(TimeUtil.CONFERENCE_TIMEZONE_SHORT);
 		this.startTime = dateTimeFormat.parse(buf.toString());
 		this.startTime.setSeconds(0);
 		this.startHour = this.startTime.getHours();
@@ -83,7 +81,7 @@ public class TimeSlot {
 		
 		reformattedTime = hhMMFormat.format(hMMFormat.parse(endTime));
 		buf = new StringBuffer(endDate);
-		buf.append(" ").append(reformattedTime).append(" -0700");
+		buf.append(" ").append(reformattedTime).append(" ").append(TimeUtil.CONFERENCE_TIMEZONE_SHORT);
 		this.endTime = dateTimeFormat.parse(buf.toString());
 		this.endTime.setSeconds(0);
 		this.endHour = this.endTime.getHours();

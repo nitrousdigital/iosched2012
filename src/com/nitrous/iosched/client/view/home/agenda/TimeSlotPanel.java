@@ -25,7 +25,7 @@ import com.nitrous.iosched.client.event.ShowFilteredSessionSelectionViewEvent;
 import com.nitrous.iosched.client.event.ShowSessionDetailEvent;
 import com.nitrous.iosched.client.event.RootViewChangeEvent.View;
 import com.nitrous.iosched.client.util.ConsoleLogger;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 import com.nitrous.iosched.client.view.session.TimeLocationRenderer;
 
 public class TimeSlotPanel implements IsWidget {
@@ -48,7 +48,7 @@ public class TimeSlotPanel implements IsWidget {
 		this.slotDef = slotDef;
 	
 		StringBuffer timeStr = new StringBuffer();
-		timeStr.append(TIME_FORMAT.format(slotDef.getStartTime(), Util.TIMEZONE));
+		timeStr.append(TIME_FORMAT.format(slotDef.getStartTime(), TimeUtil.TIMEZONE));
 		HorizontalPanel timePanel = new HorizontalPanel();
 		timePanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 		timePanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_TOP);
@@ -146,7 +146,7 @@ public class TimeSlotPanel implements IsWidget {
 			return;
 		}
 		
-		if (slotDef.getEndTime().getTime() < Util.getCurrentTimeMillis()) {
+		if (slotDef.getEndTime().getTime() < TimeUtil.getCurrentTimeMillis()) {
 			if (!isExpired) {
 				isExpired = true;
 				this.slotTitle.addStyleDependentName("expired");

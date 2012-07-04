@@ -22,7 +22,7 @@ import com.nitrous.iosched.client.event.RootViewChangeEvent.View;
 import com.nitrous.iosched.client.event.ShowFilteredSessionSelectionViewEvent;
 import com.nitrous.iosched.client.event.SimpleEventHandler;
 import com.nitrous.iosched.client.images.Images;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 public class SessionSelectionToolbar implements IsWidget {
 	private static final DateTimeFormat TIME_FORMAT = DateTimeFormat.getFormat("hh:mmaa");
@@ -93,7 +93,7 @@ public class SessionSelectionToolbar implements IsWidget {
 		EventType type = event.getEventType();
 		Date startTime = event.getStartTime();
 		StringBuffer buf = new StringBuffer();
-		buf.append(TIME_FORMAT.format(startTime, Util.TIMEZONE));
+		buf.append(TIME_FORMAT.format(startTime, TimeUtil.TIMEZONE));
 		switch (type) {
 		case CODELAB:
 			buf.append(" - Code Labs");

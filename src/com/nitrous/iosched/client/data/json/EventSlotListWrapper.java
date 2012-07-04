@@ -11,7 +11,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.shared.DateTimeFormat;
 import com.nitrous.iosched.client.data.EventSlotDateComparator;
 import com.nitrous.iosched.client.util.ConsoleLogger;
-import com.nitrous.iosched.client.util.Util;
+import com.nitrous.iosched.client.util.TimeUtil;
 
 /**
  * A wrapper to parse the event time slots
@@ -163,7 +163,7 @@ public class EventSlotListWrapper {
 			try {
 				// 
 				StringBuffer timeBuf = new StringBuffer(timeStr);
-				timeBuf.append(Util.CONFERENCE_TIMEZONE);
+				timeBuf.append(TimeUtil.CONFERENCE_TIMEZONE);
 				time = PARSE_TIME_FORMAT.parse(timeBuf.toString());
 			} catch (Throwable t) {
 				ConsoleLogger.error("Failed to parse time '"+timeStr+"' in json '"+json+"'", t);
@@ -172,10 +172,10 @@ public class EventSlotListWrapper {
 
 			StringBuffer dateTimeBuf = new StringBuffer();
 			dateTimeBuf.append(MMddyyyy_FORMAT.format(eventDate));
-			dateTimeBuf.append(HHmm_FORMAT.format(time, Util.TIMEZONE));
-			dateTimeBuf.append(Util.CONFERENCE_TIMEZONE);
+			dateTimeBuf.append(HHmm_FORMAT.format(time, TimeUtil.TIMEZONE));
+			dateTimeBuf.append(TimeUtil.CONFERENCE_TIMEZONE);
 						
-			Date theTime = Util.DATE_TIME_FORMAT.parse(dateTimeBuf.toString());
+			Date theTime = TimeUtil.DATE_TIME_FORMAT.parse(dateTimeBuf.toString());
 			theTime.setSeconds(0);
 			slotTimes[arrIdx] = theTime;
 		}
@@ -338,9 +338,9 @@ public class EventSlotListWrapper {
 				buf.append(DATE_FORMAT.format(date));
 				for (EventSlotWrapper slot : dateSlots) {
 					buf.append(",");
-					buf.append(DISPLAY_TIME_FORMAT.format(slot.getStartTime(), Util.TIMEZONE));
+					buf.append(DISPLAY_TIME_FORMAT.format(slot.getStartTime(), TimeUtil.TIMEZONE));
 					buf.append("-");
-					buf.append(DISPLAY_TIME_FORMAT.format(slot.getEndTime(), Util.TIMEZONE));
+					buf.append(DISPLAY_TIME_FORMAT.format(slot.getEndTime(), TimeUtil.TIMEZONE));
 				}
 				buf.append(")");
 			}
