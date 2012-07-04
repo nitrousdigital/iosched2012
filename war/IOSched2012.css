@@ -1,0 +1,324 @@
+.top-toolbar {
+	background: #000000 url(images/actionbar_background_pattern_tile.png)
+		repeat;
+	padding: 5px;
+}
+
+.map-button {
+	background: url(images/map_background.png) repeat;
+}
+
+.tab-panel {
+	background-color: #33b5e5;
+	padding: 0px;
+	border-bottom-color: #777777;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.map-toolbar-text {
+	color: #ffffff;
+	padding-left: 5px;
+}
+
+.tab-button-inactive {
+	background-color: #33b5e5;
+	color: #ffffff;
+	cursor: pointer;
+	border-top-style: none;
+	border-left-style: none;
+	border-bottom-color: #33b5e5;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	border-right-color: #ffffff;
+	border-right-width: 1px;
+	border-right-style: solid;
+	padding: 0px;
+}
+
+.tab-button-inactive-no-right-border {
+	background-color: #33b5e5;
+	color: #ffffff;
+	cursor: pointer;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-color: #33b5e5;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	padding: 0px;
+}
+
+.tab-button-active {
+	background-color: #33b5e5;
+	color: #ffffff;
+	cursor: default;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-color: #ffffff;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-bottom-color: #ffffff;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	padding: 0px;
+}
+
+.tab-button-active-no-right-border {
+	background-color: #33b5e5;
+	color: #ffffff;
+	cursor: default;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-color: #ffffff;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	padding: 0px;
+}
+
+.session-list-entry {
+	padding-left: 5px;
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.session-list-entry-expired {
+	background-color: #e8e8e8; 
+	padding-left: 5px;
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.session-list-entry-title-text {
+	cursor: pointer;
+	font-weight: bold;
+	color: #000000;
+}
+.session-list-entry-title-text-expired {
+	background-color: #e8e8e8;
+	cursor: pointer;
+	font-weight: bold;
+	color: #777777;
+}
+
+.session-list-entry-title-row {
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+}
+.session-list-entry-title-row-expired {
+	background-color: #e8e8e8;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+}
+.session-list-entry-location-row {
+	
+}
+.session-list-entry-location-row-expired {
+	background-color: #e8e8e8;
+}
+
+
+
+.session-list-entry-time-text {
+	cursor: pointer;
+	font-weight: normal;
+	color: #666666;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+}
+
+.session-list-entry-time-text-expired {
+	background-color: #e8e8e8;
+	cursor: pointer;
+	font-weight: normal;
+	color: #777777;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+}
+
+.session-track-row { /*cursor: pointer;*/
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.session-track-swatch {
+	padding: 5px;
+	cursor: pointer;
+	border-color: #ffffff;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.session-detail {
+	padding: 5px;
+}
+
+.session-detail-header-title-text {
+	font-weight: bold;
+	color: black;
+	background-color: #dddddd;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+}
+
+.date-section-header-row {
+	font-weight: bold;
+	background-color: #91ccff;
+	padding-left: 5px;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;	
+}
+
+.agenda-slot-title-text-empty {
+	color: #00aa00;
+	font-weight: bold;
+	cursor: pointer;
+}
+.agenda-slot-title-text-empty-expired {
+	background-color: #e8e8e8;
+	color: #777777;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.agenda-slot-title-text-used {
+	color: #000000;
+	font-weight: bold;
+	cursor: pointer;
+}
+.agenda-slot-title-text-used-expired {
+	background-color: #e8e8e8;
+	color: #777777;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.agenda-slot-location-text-empty {
+	color: #777777;
+	font-weight: normal;
+	cursor: pointer;
+}
+.agenda-slot-location-text-empty-expired {
+	background-color: #e8e8e8;
+	color: #777777;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.agenda-slot-location-text-used {
+	color: #777777;
+	font-weight: normal;
+	cursor: pointer;
+}
+.agenda-slot-location-text-used-expired {
+	background-color: #e8e8e8;
+	color: #777777;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.agenda-session-time-cell {
+	padding: 0px 0px 0px 0px;	
+	background-color: #dddddd;
+}
+.agenda-session-slot-detail-panel {
+	padding: 0px 0px 0px 0px;	
+}
+.agenda-slot-row {
+	padding: 0px 0px 0px 0px;	
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;	
+}
+.agenda-session-time-text {
+}
+
+.session-detail-header {
+	background-color: #dddddd;
+	padding-left: 5px;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	border-bottom-color: #777777;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.session-detail-header-location-text {
+	font-weight: normal;
+	color: #666666;
+	background-color: #dddddd;
+	padding-left: 5px;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+}
+
+.session-detail-section-header-text {
+	font-weight: bold;
+	color: #2175bd;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-bottom-color: #2175bd;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.session-detail-first-section-text {
+	padding-top: 5px;
+}
+
+.session-detail-section-text {
+	
+}
+
+.session-track-text {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.countdown-panel {
+	background-color: black;
+	padding: 5px;
+}
+
+.countdown-text {
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.stream-frame {
+	border: 0;
+	box-shadow: 0 0px 20px #888;
+	-webkit-box-shadow: 0 0px 20px #888;
+	-khtml-box-shadow: 0 0px 20px #888;
+	-moz-box-shadow: 0 0px 20px #888;
+	-ms-box-shadow: 0 0px 20px #888;
+	-o-box-shadow: 0 0px 20px #888;
+}

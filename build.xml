@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="IOSched2012" default="war" basedir=".">
+	<property file="build.properties" />
+	
+    <!-- The path to the deployment directory where the war file will be copied by the deploy target -->
+    <property name="catalina.home" value="${env.CATALINA_HOME}"/>
+
+    <!-- The GWT module to be compiled -->
+    <property name="gwt.module" value="com.nitrous.iosched.IOSched2012"/>
+    
+    <!-- The application name used for war and zip packaging -->
+	<property name="app.name" value="iosched2012"/>
+	    	
+    <!-- The path to the deployment directory where the war file will be copied by the deploy target -->
+    <property name="webapps.dir" value="${catalina.home}/webapps"/>
+	
+	<!-- Arguments to gwtc and devmode targets -->
+	<property name="gwt.style" value="OBF" />
+	<property name="gwt.args" value="-style ${gwt.style}" />
+
+	<!-- Configure path to GWT SDK -->
+	<property name="gwt.sdk" location="/Users/nick/work/java/GWT/gwt-2.4.0-rc1" />
+
+	<path id="project.class.path">
+		<pathelement location="build/classes" />
+		<pathelement location="${gwt.sdk}/gwt-user.jar" />
+		<fileset dir="${gwt.sdk}" includes="gwt-dev*.jar" />
+	    <fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
+	</path>
+
+	<target name="javac" description="Compile java source to bytecode">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src" includes="**" encoding="utf-8" destdir="build/classes" source="1.5" target="1.5" nowarn="true" debug="true" debuglevel="lines,vars,source">
+			<classpath refid="project.class.path" />
+		</javac>
+		<copy todir="build/classes">
+			<fileset dir="src" excludes="**/*.java" />
+		</copy>
+	</target>
+
+	<target name="gwtc" depends="javac" description="GWT compile to JavaScript (production mode)">
+		<echo>GWT Compile style: ${gwt.style}</echo>
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+			<classpath>
+				<pathelement location="src" />
+				<path refid="project.class.path" />
+		        <pathelement location="${gwt.sdk}/validation-api-1.0.0.GA.jar" />
+		        <pathelement location="${gwt.sdk}/validation-api-1.0.0.GA-sources.jar" />
+			</classpath>
+			<!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+			<jvmarg value="-Xmx256M" />
+			<arg line="-war" />
+			<arg value="war" />
+			<!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+			<arg line="${gwt.args}" />
+			<arg value="${gwt.module}" />
+		</java>
+	</target>
+
+	<target name="build" depends="gwtc" description="Build this project" />
+
+	<target name="war" depends="build" description="Create a war file">
+		<zip destfile="build/${app.name}.war" basedir="war" />
+	</target>
+	
+	<target name="war-noappengine" depends="build" description="Create a small war file (excludes appengine jars)">
+		<zip destfile="build/${app.name}.war">
+		    <fileset dir="war">
+		        <exclude name="**/WEB-INF/lib/**"/>
+				<exclude name="**/WEB-INF/classes/**"/> 
+				<exclude name="**/WEB-INF/deploy/**"/> 						        		      
+		    </fileset>
+	   </zip>
+	</target>
+			
+	<target name="clean" description="Cleans this project">
+		<delete dir="build" failonerror="false" />
+		<delete dir="war/io" failonerror="false" />
+	</target>
+
+</project>
